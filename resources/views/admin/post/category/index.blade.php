@@ -26,7 +26,7 @@
     <div class="col-md-10">
         <a class="btn btn-info btn-sm" data-toggle="modal" href="#category-modal">Add New Category</a> <br><br>
         <div class="card">
-            
+            @include('validate')
             <div class="card-header">
                 <h4 class="card-title">All Categories</h4>
                 
@@ -35,8 +35,10 @@
                 <div class="table-responsive">
                     <table class="table table-striped mb-0">
                         <thead>
+
+                           
                             <tr>
-                                <th>#</th>
+                                <th>SL</th>
                                 <th>Category Name</th>
                                 <th>Slug</th>
                                 <th>Status</th>
@@ -44,16 +46,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($all_data as $data)
                             <tr>
-                                <td>1</td>
-                                <td>Banglaseshi Food</td>
-                                <td>bangladeshi-food</td>
-                                <td>Published</td>
+                                <td>{{ $loop -> index+1 }}</td>
+                                <td>{{ $data -> name }}</td>
+                                <td>{{ $data -> slug }}</td>
                                 <td>
+                                    @if($data -> status == 'Published')
+                                        <span class=" badge badge-success">Published</span>
+                                    @else
+                                        <span class=" badge badge-danger">Unpublished</span>    
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($data -> status == 'Published')
+                                        <a class="btn btn-danger btn-sm" href="{{ route('category.unpublished', $data -> id) }}"><i class="fa fa-eye-slash"></i></a>
+                                    @else
+                                    <a class="btn btn-success btn-sm" href="{{ route('category.published', $data -> id) }}"><i class="fa fa-eye"></i></a>
+                                    @endif
                                     <a class=" btn btn-warning btn-sm" href="">Edit</a>
                                     <a class=" btn btn-danger btn-sm" href="">Delete</a>
                                 </td>
                             </tr>
+                            @endforeach
+                            
                             
                         </tbody>
                     </table>
@@ -68,18 +84,22 @@
         <div class=" modal-content">
             <div class=" modal-header">
                 <h1 class=" modal-title">Add New Category</h1>
+                
+                
+
                 <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class=" modal-body">
-                <form action="">
+                <form action="{{ route('post-category.store') }}" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <input class=" form-control" type="text" placeholder="Category Name">
+                        <input name="name" class=" form-control" type="text" placeholder="Category Name">
                     </div>
-
+ 
                     <div class="form-group">
                         <label style="font-family: impact; font-size: 20px;" for="">Category Status</label><br> <br>
-                        <input class="" type="checkbox" id="Published"><label class="ml-1" for="Published">Published</label> <br>
-                        <input class="" type="checkbox" id="Unpublished"><label class="ml-1" for="Unpublished">Unpublished</label>
+                        <input name="status" class="" type="radio" value="Published" id="Published"><label class="ml-1" for="Published">Published</label> <br>
+                        <input name="status" class="" type="radio" value="Unpublished" id="Unpublished"><label class="ml-1" for="Unpublished">Unpublished</label>
                     </div>
 
                     <div class="form-group">
