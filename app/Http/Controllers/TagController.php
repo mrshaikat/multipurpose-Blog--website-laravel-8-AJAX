@@ -68,7 +68,12 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data  = Tag::find($id);
+
+        return [
+            'name'  => $data -> name,
+            'id'  => $data -> id,
+        ];
     }
 
     /**
@@ -78,9 +83,18 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request -> id;
+
+       $data = Tag::find($id );
+
+       $data -> name = $request -> name;
+       $data -> slug = Str::slug($request -> name);
+
+       $data -> update();
+
+       return redirect() -> route('tag.index') -> with('success', 'Tag Update Successfull');
     }
 
     /**
