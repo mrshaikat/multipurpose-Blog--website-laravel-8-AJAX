@@ -60,12 +60,12 @@
                                 </td>
                                 <td>
                                     @if($data -> status == 'Published')
-                                        <a class="btn btn-danger btn-sm" href="{{ route('category.unpublished', $data -> id) }}"><i class="fa fa-eye-slash"></i></a>
+                                        <a class="btn btn-danger btn-sm" href="{{ route('tag.unpublished', $data -> id) }}"><i class="fa fa-eye-slash"></i></a>
                                     @else
-                                    <a class="btn btn-success btn-sm" href="{{ route('category.published', $data -> id) }}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-success btn-sm" href="{{ route('tag.published', $data -> id) }}"><i class="fa fa-eye"></i></a>
                                     @endif
                                     <a id="tag-edit" edit_id="{{ $data -> id }}" class=" btn btn-warning btn-sm" href="#tag-modal-edit" data-toggle="modal">Edit</a>
-                                    <form style="display: inline;" action="{{ route('post-category.destroy', $data -> id) }}" method="POST">
+                                    <form style="display: inline;" action="{{ route('tag.destroy', $data -> id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm">Delete</button>

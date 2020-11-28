@@ -31,3 +31,5 @@ Route::post('post-category-update', 'App\Http\Controllers\CategoryController@upd
 // Tags Routes
 
 Route::resource('tag', 'App\Http\Controllers\TagController');
+Route::get('post-tag-unpublished/{id}', 'App\Http\Controllers\TagController@unpublishedTag') -> name('tag.unpublished');
+Route::get('post-tag-published/{id}', 'App\Http\Controllers\TagController@publishedTag') -> name('tag.published');
