@@ -20,9 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Category Routes
 Route::resource('post-category', 'App\Http\Controllers\CategoryController');
 Route::get('post-category-unpublished/{id}', 'App\Http\Controllers\CategoryController@unpublishedCategory') -> name('category.unpublished');
 Route::get('post-category-published/{id}', 'App\Http\Controllers\CategoryController@publishedCategory') -> name('category.published');
 Route::get('post-category-edit/{id}', 'App\Http\Controllers\CategoryController@edit');
 Route::post('post-category-update', 'App\Http\Controllers\CategoryController@update') -> name('category.update');
 
+// Tags Routes
+
+Route::resource('tag', 'App\Http\Controllers\TagController');

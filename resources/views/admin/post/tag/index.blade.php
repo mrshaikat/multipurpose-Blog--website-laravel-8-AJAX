@@ -12,7 +12,7 @@
   <div class="col-sm-12">
     <h3 class="page-title">Welcome {{ Auth::user() -> name }}!</h3>
     <ul class="breadcrumb">
-      <li class="breadcrumb-item active">Tags</li>
+      <li class="breadcrumb-item active">Category</li>
     </ul>
   </div>
 </div>
@@ -24,11 +24,11 @@
 <div class="row">
    
     <div class="col-md-10">
-        <a class="btn btn-info btn-sm" data-toggle="modal" href="#category-modal">Add New Tag</a> <br><br>
-        <div class="card">
+        <a class="btn btn-info btn-sm" data-toggle="modal" href="#tag-modal">Add New Tag</a> <br><br>
+        <div class="card"> 
             @include('validate')
             <div class="card-header">
-                <h4 class="card-title">All Tags</h4>
+                <h4 class="card-title">All Categories</h4>
                 
             </div>
             <div class="card-body">
@@ -64,7 +64,7 @@
                                     @else
                                     <a class="btn btn-success btn-sm" href="{{ route('category.published', $data -> id) }}"><i class="fa fa-eye"></i></a>
                                     @endif
-                                    <a id="category-edit" edit_id="{{ $data -> id }}" class=" btn btn-warning btn-sm" href="#category-modal-edit" data-toggle="modal">Edit</a>
+                                    <a id="tag-edit" edit_id="{{ $data -> id }}" class=" btn btn-warning btn-sm" href="#tag-modal-edit" data-toggle="modal">Edit</a>
                                     <form style="display: inline;" action="{{ route('post-category.destroy', $data -> id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -83,8 +83,8 @@
     </div>
 </div>
 
-<div id="category-modal" class=" modal fade">
-    <div class=" modal-dialog modal-dialog-centered">
+<div id="tag-modal" class=" modal fade">
+    <div class="modal-dialog modal-dialog-centered">
         <div class=" modal-content">
             <div class=" modal-header">
                 <h1 class=" modal-title">Add New Tag</h1>
@@ -94,17 +94,13 @@
                 <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class=" modal-body">
-                <form action="{{ route('post-category.store') }}" method="POST">
+                <form action="{{ route('tag.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <input name="name" class=" form-control" type="text" placeholder="Category Name">
+                        <input name="name" class=" form-control" type="text" placeholder="Tag Name">
                     </div>
  
-                    <div class="form-group">
-                        <label style="font-family: impact; font-size: 20px;" for="">Category Status</label><br> <br>
-                        <input name="status" class="" type="radio" value="Published" id="Published"><label class="ml-1" for="Published">Published</label> <br>
-                        <input name="status" class="" type="radio" value="Unpublished" id="Unpublished"><label class="ml-1" for="Unpublished">Unpublished</label>
-                    </div>
+                 
 
                     <div class="form-group">
                         <input class="btn btn-info btn-block" type="submit" value="Add">
@@ -120,7 +116,7 @@
 
 
 
-<div id="category-modal-edit" class=" modal fade">
+<div id="tag-modal-edit" class=" modal fade">
     <div class=" modal-dialog modal-dialog-centered">
         <div class=" modal-content">
             <div class=" modal-header">
@@ -134,8 +130,8 @@
                 <form action="{{ route('category.update') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <input name="name" class=" form-control" type="text" placeholder="Category Name">
-                        <input name="id" class=" form-control" type="hidden" placeholder="Category Name">
+                        <input name="name" class=" form-control" type="text" placeholder="Tag Name">
+                        <input name="id" class=" form-control" type="hidden" placeholder="Tag Name">
                     </div>
  
                     
