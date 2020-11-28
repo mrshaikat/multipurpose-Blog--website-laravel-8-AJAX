@@ -80,7 +80,13 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data  = Category::find($id);
+
+        return [
+            'name'  => $data -> name,
+            'id'  => $data -> id,
+        ];
+        
     }
 
     /**
@@ -90,9 +96,19 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       $id = $request -> id;
+
+       $data = Category::find($id );
+
+       $data -> name = $request -> name;
+       $data -> slug = Str::slug($request -> name);
+
+       $data -> update();
+
+       return redirect() -> route('post-category.index') -> with('success', 'Category Update Successfull');
+
     }
 
     /**
@@ -103,7 +119,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Category::find($id);
+        $data -> delete();
+
+        return redirect() -> route('post-category.index') -> with('success', 'Category Delete Successfull');
     }
 
     public function unpublishedCategory($id){

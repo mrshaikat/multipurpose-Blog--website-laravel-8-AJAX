@@ -64,8 +64,12 @@
                                     @else
                                     <a class="btn btn-success btn-sm" href="{{ route('category.published', $data -> id) }}"><i class="fa fa-eye"></i></a>
                                     @endif
-                                    <a class=" btn btn-warning btn-sm" href="">Edit</a>
-                                    <a class=" btn btn-danger btn-sm" href="">Delete</a>
+                                    <a id="category-edit" edit_id="{{ $data -> id }}" class=" btn btn-warning btn-sm" href="#category-modal-edit" data-toggle="modal">Edit</a>
+                                    <form style="display: inline;" action="{{ route('post-category.destroy', $data -> id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -103,7 +107,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input class="btn btn-info btn-block" type="submit" value="SUBMIT">
+                        <input class="btn btn-info btn-block" type="submit" value="Add">
                     </div>
 
                 </form>
@@ -112,6 +116,42 @@
         </div>
     </div>
 </div>
+
+
+
+
+<div id="category-modal-edit" class=" modal fade">
+    <div class=" modal-dialog modal-dialog-centered">
+        <div class=" modal-content">
+            <div class=" modal-header">
+                <h1 class=" modal-title">Update Category</h1>
+                
+                
+
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class=" modal-body">
+                <form action="{{ route('category.update') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input name="name" class=" form-control" type="text" placeholder="Category Name">
+                        <input name="id" class=" form-control" type="hidden" placeholder="Category Name">
+                    </div>
+ 
+                    
+
+                    <div class="form-group">
+                        <input class="btn btn-info btn-block" type="submit" value="Update">
+                    </div>
+
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
 
   
 </div>
