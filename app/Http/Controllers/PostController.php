@@ -66,6 +66,8 @@ class PostController extends Controller
             
         ]);
 
+        $post_user -> categories() -> attach( $request -> category);
+
         return redirect() -> route('post.index') -> with('success', 'Post added Successfull');
     }
 

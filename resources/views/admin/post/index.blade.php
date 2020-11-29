@@ -55,7 +55,14 @@
                                 <td>{{ $loop -> index+1 }}</td>
                                 
                                 <td>{{ $data -> title }}</td>
-                                <td>{{ $data -> category }}</td>
+                                <td>
+                                   
+                                    @foreach($data -> categories as $category)
+                                         {{ $category -> name }} |
+                                    @endforeach
+                                    
+                                
+                                </td>
                                 <td>{{ $data -> tag }}</td>
                                 <td>
                                     @if( !empty($data -> featured_img) )
