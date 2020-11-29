@@ -14,7 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('fronend.home');
+});
+
+Route::get('/blog', function () {
+    return view('fronend.blog');
+});
+
+Route::get('/blog-single', function () {
+    return view('fronend.blog-single');
 });
 
 Auth::routes();
@@ -37,5 +45,4 @@ Route::get('post-tag-edit/{id}', 'App\Http\Controllers\TagController@edit');
 Route::post('post-tag-update', 'App\Http\Controllers\TagController@update') -> name('category.update');
 
 // Posts Routes
-
 Route::resource('post', 'App\Http\Controllers\PostController');
