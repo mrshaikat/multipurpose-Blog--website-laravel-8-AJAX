@@ -97,7 +97,7 @@
                 <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('tag.store') }}" method="POST">
+                <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <input name="title" class=" form-control" type="text" placeholder="Title">
@@ -111,7 +111,7 @@
                             @foreach($all_category as $category)
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="checkbox"> {{ $category -> name }}
+                                    <input type="checkbox" name="category[]" value="{{ $category -> id }}"> {{ $category -> name }}
                                 </label>
                             </div>
                             @endforeach
@@ -129,13 +129,13 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea name="" id="post_editor"></textarea>
+                        <textarea name="content" id="post_editor"></textarea>
                     </div>
  
                  
 
                     <div class="form-group">
-                        <input class="btn btn-info btn-block" type="submit" value="Add">
+                        <input class="btn btn-info btn-block" type="submit" value="Add Post">
                     </div>
 
                 </form>
