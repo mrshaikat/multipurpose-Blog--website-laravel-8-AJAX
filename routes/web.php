@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('fronend.home');
+    return view('frontend.home');
 });
 
 Route::get('/blog', function () {
-    return view('fronend.blog');
+    return view('frontend.blog');
 });
 
 Route::get('/blog-single', function () {
-    return view('fronend.blog-single');
+    return view('frontend.blog-single');
 });
 
 Auth::routes();
