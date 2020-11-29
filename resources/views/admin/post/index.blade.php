@@ -96,12 +96,31 @@
 
                 <button class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class=" modal-body">
+            <div class="modal-body">
                 <form action="{{ route('tag.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <input name="title" class=" form-control" type="text" placeholder="Title">
                     </div>
+
+                    <div class="form-group row">
+                        <label style="font-family: candara; " class="col-form-label col-md-3"><h5>Choose Category</h5></label>
+
+                        <div class="col-md-9">
+
+                            @foreach($all_category as $category)
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="checkbox"> {{ $category -> name }}
+                                </label>
+                            </div>
+                            @endforeach
+                            
+                           
+                            
+                        </div>
+                    </div>
+
 
                     <div class="form-group">
                         <img style="max-width: 100%; display:block;" id="post_featured_img_load" src="" alt="">

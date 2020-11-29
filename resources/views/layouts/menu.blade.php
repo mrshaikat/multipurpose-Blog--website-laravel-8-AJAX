@@ -36,7 +36,7 @@
                 <li class="submenu">
                     <a href="#"><i class="fa fa-plus"></i> <span> Posts</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="invoice-report.html">All Posts</a></li>
+                        <li><a href="{{ route('post.index') }}">All Posts</a></li>
                         <li><a href="{{ route('post-category.index') }}">Categorys</a></li>
                         <li><a href="{{ route('tag.index') }}">Tags</a></li>
                     </ul>
