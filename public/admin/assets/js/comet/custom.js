@@ -2,7 +2,7 @@
 
     $(document).ready(function(){
       //Post Datatable
-      $('table#post-table').dataTable();
+      $('table.data-table').dataTable();
 
       // CK Editor
       CKEDITOR.replace('post_editor');
