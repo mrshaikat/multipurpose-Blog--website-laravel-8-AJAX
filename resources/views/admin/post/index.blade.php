@@ -39,7 +39,8 @@
                            
                             <tr>
                                 <th>SL</th>
-                                <th>Author Nme</th>
+                                
+                                <th>Title</th>
                                 <th>Categories</th>
                                 <th>Tags</th>
                                 <th>Feature Image</th>
@@ -52,8 +53,18 @@
                             @foreach($all_data as $data)
                             <tr>
                                 <td>{{ $loop -> index+1 }}</td>
-                                <td>{{ $data -> name }}</td>
-                                <td>{{ $data -> slug }}</td>
+                                
+                                <td>{{ $data -> title }}</td>
+                                <td>{{ $data -> category }}</td>
+                                <td>{{ $data -> tag }}</td>
+                                <td>
+                                    @if( !empty($data -> featured_img) )
+                                    <img style="height: 60px; width: 60px;" src="{{ URL::to('/') }}/admin/media/post/{{ $data -> featured_img }}" alt="">
+                                    @endif
+                                    
+                                
+                                </td>
+                                <td></td>
                                 <td>
                                     @if($data -> status == 'Published')
                                         <span class=" badge badge-success">Published</span>
