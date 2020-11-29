@@ -6,7 +6,12 @@
 
 <!-- Feathericon CSS -->
 <link rel="stylesheet" href="{{ asset('admin/assets/css/feathericon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/morris/morris.css') }}">
+<link rel="stylesheet" href="{{ asset('admin/assets/plugins/morris/morris.css') }}">
+
+
+{{-- Datatable CSS --}}
+<link rel="stylesheet" href="{{ asset('admin/assets/css/datatables.min.css') }}">
+
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">

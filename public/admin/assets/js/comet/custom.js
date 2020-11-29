@@ -1,9 +1,10 @@
 (function($){
 
     $(document).ready(function(){
+      //Post Datatable
+      $('table#post-table').dataTable();
 
       // CK Editor
-
       CKEDITOR.replace('post_editor');
 
       //Logout System 

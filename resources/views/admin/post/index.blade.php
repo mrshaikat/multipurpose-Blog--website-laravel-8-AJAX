@@ -33,7 +33,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped mb-0">
+                    <table id="post-table" class="table table-striped mb-0">
                         <thead>
 
                            
@@ -66,12 +66,12 @@
                                 <td>{{ $data -> tag }}</td>
                                 <td>
                                     @if( !empty($data -> featured_img) )
-                                    <img style="height: 60px; width: 60px;" src="{{ URL::to('/') }}/admin/media/post/{{ $data -> featured_img }}" alt="">
+                                    <img style="height: 50px; width: 50px;" src="{{ URL::to('/') }}/admin/media/post/{{ $data -> featured_img }}" alt="">
                                     @endif
                                     
                                 
                                 </td>
-                                <td></td>
+                                <td>{{ $data -> created_at -> diffForHumans() }}</td>
                                 <td>
                                     @if($data -> status == 'Published')
                                         <span class=" badge badge-success">Published</span>
