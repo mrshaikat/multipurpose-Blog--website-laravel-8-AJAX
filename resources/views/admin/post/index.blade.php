@@ -45,6 +45,7 @@
                                 <th>Tags</th>
                                 <th>Feature Image</th>
                                 <th>Times</th>
+                                <th>Author</th>
                                 <th>Status</th>
                                 <th>Acion</th>
                             </tr>
@@ -53,6 +54,8 @@
                             @foreach($all_data as $data)
                             <tr>
                                 <td>{{ $loop -> index+1 }}</td>
+
+                                
                                 
                                 <td>{{ $data -> title }}</td>
                                 <td>
@@ -72,6 +75,7 @@
                                 
                                 </td>
                                 <td>{{ $data -> created_at -> diffForHumans() }}</td>
+                                <td>{{ $data -> author -> name }}</td>
                                 <td>
                                     @if($data -> status == 'Published')
                                         <span class=" badge badge-success">Published</span>

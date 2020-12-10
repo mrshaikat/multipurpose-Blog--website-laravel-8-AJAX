@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ class PostController extends Controller
     {
         $all_data  = Post::all();
         $all_category  = Category::all();
+       
         return view('admin.post.index', compact('all_data', 'all_category'));
     }
 
