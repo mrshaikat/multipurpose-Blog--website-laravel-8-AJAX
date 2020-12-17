@@ -8,6 +8,18 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +52,7 @@ class CategoryController extends Controller
         $this-> validate($request, [
 
             'name'  => 'required',
-            
+
         ]);
 
         if( !empty($request -> status)){
@@ -86,7 +98,7 @@ class CategoryController extends Controller
             'name'  => $data -> name,
             'id'  => $data -> id,
         ];
-        
+
     }
 
     /**

@@ -32,7 +32,7 @@
           <article class="post-single">
             <div class="post-info">
               <h2><a href="#">{{ $post -> title }}</a></h2>
-              <h6 class="upper"><span>By</span><a href="#"> {{ $post -> author -> name }}</a><span class="dot"></span><span>{{ $post -> created_at -> diffForHumans() }}</span><span class="dot"></span>
+              <h6 class="upper"><span>By</span><a href="#"> {{ $post -> author -> name }}</a><span class="dot"></span><span>{{ date('F d Y', strtotime($post -> created_at)) }}</span><span class="dot"></span>
 
                 @foreach($post -> categories as $category_name)
                 <a href="{{ $category_name -> slug }}" class="post-tag">{{ $category_name -> name }}</a> .
@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="post-body">
-              {!! htmlspecialchars_decode( $post -> post_content) !!}
+              {!! Str::of(htmlspecialchars_decode( $post -> post_content)) -> words(30, '. . . . see more') !!}
               <p><a href="{{ route('blog.single',  $post -> slug ) }}" class="btn btn-color btn-sm">Read More</a>
               </p>
             </div>
@@ -69,7 +69,10 @@
         <ul class="pagination">
         {{ $all_post -> links() }}
         </ul>
-        <ul class="pagination">
+
+
+
+        {{-- <ul class="pagination">
           <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="ti-arrow-left"></i></span></a>
           </li>
           <li class="active"><a href="#">1</a>
@@ -86,7 +89,7 @@
           </li>
         </ul>
         <!-- end of pagination-->
-      </div>
+      </div> --}}
 
       {{-- Blog Side bar --}}
       @include('frontend.layouts.blog-sidebar')

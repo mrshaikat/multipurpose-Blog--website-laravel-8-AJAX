@@ -11,6 +11,17 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +29,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $all_data  = Post::all();
+        $all_data  = Post::latest() -> get();
         $all_category  = Category::all();
-       
+
         return view('admin.post.index', compact('all_data', 'all_category'));
     }
 
@@ -45,7 +56,7 @@ class PostController extends Controller
         $this-> validate($request, [
             'title'  => 'required',
             'content'  => 'required',
-          
+
         ]);
 
         if($request-> hasFile('fimg')){
@@ -65,7 +76,7 @@ class PostController extends Controller
             'author_id'  => Auth::user() -> id,
             'post_content'  => $request -> content,
             'featured_img'  => $file_name,
-            
+
         ]);
 
         $post_user -> categories() -> attach( $request -> category);
