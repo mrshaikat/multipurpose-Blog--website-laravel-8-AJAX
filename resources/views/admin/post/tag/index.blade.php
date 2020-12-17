@@ -3,7 +3,7 @@
 @section('main-content')
   <!-- Page Wrapper -->
   <div class="page-wrapper">
-			
+
     <div class="content container-fluid">
 
 <!-- Page Header -->
@@ -22,24 +22,24 @@
 {{-- table  --}}
 
 <div class="row">
-   
+
     <div class="col-md-10">
-        <a class="btn btn-info btn-sm" data-toggle="modal" href="#tag-modal">Add New Tag</a> <br><br>
-        <div class="card"> 
+
+        <div class="card">
             @include('validate')
             <div class="card-header">
-                <h4 class="card-title">All Categories</h4>
-                
+                <h4 class="card-title">All Tags  <a class="btn btn-info btn-sm pull-right" data-toggle="modal" href="#tag-modal">Add New Tag</a></h4>
+
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped data-table mb-0">
                         <thead>
 
-                           
+
                             <tr>
                                 <th>SL</th>
-                                <th>Category Name</th>
+                                <th>Tag Name</th>
                                 <th>Slug</th>
                                 <th>Status</th>
                                 <th>Acion</th>
@@ -55,7 +55,7 @@
                                     @if($data -> status == 'Published')
                                         <span class=" badge badge-success">Published</span>
                                     @else
-                                        <span class=" badge badge-danger">Unpublished</span>    
+                                        <span class=" badge badge-danger">Unpublished</span>
                                     @endif
                                 </td>
                                 <td>
@@ -73,8 +73,8 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
-                            
+
+
                         </tbody>
                     </table>
                 </div>
@@ -88,8 +88,8 @@
         <div class=" modal-content">
             <div class=" modal-header">
                 <h1 class=" modal-title">Add New Tag</h1>
-                
-                
+
+
 
                 <button class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -99,8 +99,8 @@
                     <div class="form-group">
                         <input name="name" class=" form-control" type="text" placeholder="Tag Name">
                     </div>
- 
-                 
+
+
 
                     <div class="form-group">
                         <input class="btn btn-info btn-block" type="submit" value="Add">
@@ -108,7 +108,7 @@
 
                 </form>
             </div>
-           
+
         </div>
     </div>
 </div>
@@ -121,8 +121,8 @@
         <div class=" modal-content">
             <div class=" modal-header">
                 <h1 class=" modal-title">Update Tag</h1>
-                
-                
+
+
 
                 <button class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -133,8 +133,8 @@
                         <input name="name" class=" form-control" type="text" placeholder="Tag Name">
                         <input name="id" class=" form-control" type="hidden" placeholder="Tag Name">
                     </div>
- 
-                    
+
+
 
                     <div class="form-group">
                         <input class="btn btn-info btn-block" type="submit" value="Update">
@@ -142,19 +142,19 @@
 
                 </form>
             </div>
-           
+
         </div>
     </div>
 </div>
 
 
 
-  
+
 </div>
 </div>
 
 
-</div>			
+</div>
 </div>
 <!-- /Page Wrapper -->
 @endsection

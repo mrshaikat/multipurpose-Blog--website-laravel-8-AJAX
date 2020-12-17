@@ -6,8 +6,9 @@
 
       // CK Editor
       CKEDITOR.replace('post_editor');
+      CKEDITOR.replace('post_editor_edit');
 
-      //Logout System 
+      //Logout System
       //Get logout button form Home page
       $('a#logout-button').click(function(e){
         e.preventDefault();
@@ -35,7 +36,7 @@
             }
 
           });
-        
+
       });
 
 
@@ -59,7 +60,7 @@
             }
 
           });
-        
+
       });
 
       //Post Featured Image Load
@@ -69,6 +70,33 @@
           let post_image_url = URL.createObjectURL(e.target.files[0]);
 
           $('img#post_featured_img_load').attr('src', post_image_url);
+      });
+
+
+
+      // Post Edit
+      $(document).on('click', '#post-edit', function(e){
+
+        e.preventDefault();
+
+
+
+        let edit_id = $(this).attr('edit_id');
+
+        $.ajax({
+
+            url: 'post-edit/'+edit_id,
+            dataType : "json",
+            success: function(data){
+                $('#post-modal-edit form input[name="title"]').val(data.title);
+                $('#post_featured_img_edit').attr('src','admin/media/post/'+data.image);
+                $('#post-modal-edit .cl').html(data.cat_list);
+                $('#post-modal-edit').modal('show');
+
+            }
+        });
+
+
       });
 
 
