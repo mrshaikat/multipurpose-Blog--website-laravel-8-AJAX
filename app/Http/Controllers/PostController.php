@@ -133,8 +133,10 @@ class PostController extends Controller
         }
 
             return [
+                'id'  => $data -> id,
                 'title'  => $data -> title,
                 'image'  => $data -> featured_img,
+                'post_content'  => $data -> post_content,
                 'cat_list'  => $cat_list,
             ];
 
@@ -161,5 +163,21 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function postUpdate(Request $request){
+
+
+        $post_id = $request -> id;
+
+        $post_data = Post::find($post_id);
+        $post_data -> title = $request -> title;
+        $post_data -> post_content = $request -> content;
+        $post_data -> update();
+
+        $post_data -> categories() -> detach();
+        $post_data -> categories() -> attach($request -> category);
+
+        return redirect() -> back() -> with('success', "Post Update Done");
     }
 }

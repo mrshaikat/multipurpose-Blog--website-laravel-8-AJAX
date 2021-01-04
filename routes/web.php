@@ -45,3 +45,4 @@ Route::post('post-tag-update', 'App\Http\Controllers\TagController@update') -> n
 // Posts Routes
 Route::resource('post', 'App\Http\Controllers\PostController');
 Route::get('post-edit/{id}', 'App\Http\Controllers\PostController@edit');
+Route::patch('post-update', 'App\Http\Controllers\PostController@postUpdate')-> name('post.update.ajax');

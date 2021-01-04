@@ -89,7 +89,8 @@
           </li>
         </ul>
         <!-- end of pagination-->
-      </div> --}}
+        --}}
+      </div>
 
       {{-- Blog Side bar --}}
       @include('frontend.layouts.blog-sidebar')

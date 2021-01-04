@@ -88,7 +88,9 @@
             url: 'post-edit/'+edit_id,
             dataType : "json",
             success: function(data){
+                $('#post-modal-edit form input[name="id"]').val(data.id);
                 $('#post-modal-edit form input[name="title"]').val(data.title);
+                $('#post-modal-edit textarea').text(data.post_content);
                 $('#post_featured_img_edit').attr('src','admin/media/post/'+data.image);
                 $('#post-modal-edit .cl').html(data.cat_list);
                 $('#post-modal-edit').modal('show');

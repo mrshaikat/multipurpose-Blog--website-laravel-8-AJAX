@@ -183,10 +183,12 @@
                 <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class=" modal-body">
-                <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('post.update.ajax') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
                     <div class="form-group">
                         <input name="title" class=" form-control" type="text" placeholder="Title">
+                        <input name="id" class="form-control" type="hidden">
                     </div>
 
                     <div class="form-group row">
@@ -209,13 +211,13 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea name="content" id="post_editor_edit"></textarea>
+                        <textarea name="content" id="" class="form-control"></textarea>
                     </div>
 
 
 
                     <div class="form-group">
-                        <input class="btn btn-info btn-block" type="submit" value="Add Post">
+                        <input class="btn btn-info btn-block" type="submit" value="Update Post">
                     </div>
 
                 </form>
