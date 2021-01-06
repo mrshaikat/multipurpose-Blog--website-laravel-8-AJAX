@@ -22,6 +22,8 @@ class FrontEndController extends Controller
         return view('frontend.blog', compact('all_post', 'all_category', 'all_tags', 'latest_post'));
     }
 
+
+
     public function singlePost($slug){
 
         $single_post = Post::where('slug', $slug) -> first();
@@ -29,5 +31,36 @@ class FrontEndController extends Controller
             $all_tags = Tag::latest() -> take(5) -> get();
             $latest_post = Post::latest() -> take(5) -> get();
         return view('frontend.blog-single', compact('single_post', 'all_category','all_tags','latest_post'));
+    }
+
+    public function postByCategory($slug){
+
+        $aacats = Category::where('slug', $slug) ->  get();
+        return view('frontend.category-search', compact('aacats'));
+
+    }
+
+    public function postByTag($slug){
+
+        $aatags = Tag::where('slug', $slug) ->  get();
+        return view('frontend.tag-search', compact('aatags'));
+
+    }
+
+    public function postByLatest($slug){
+
+        $all_pp = Post::where('slug', $slug) ->  get();
+        return view('frontend.latest-search', compact('all_pp'));
+
+    }
+
+
+    public function postBySearch(Request $request){
+
+        $search_title = $request -> search;
+
+        $posts = Post::where('title','like', '%'.$search_title.'%') -> get();
+
+        return view('frontend.search', compact('posts'));
     }
 }

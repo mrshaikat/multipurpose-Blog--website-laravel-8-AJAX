@@ -19,6 +19,19 @@ Route::get('/', 'App\Http\Controllers\FrontEndController@homePage');
 Route::get('/blog', 'App\Http\Controllers\FrontEndController@blogPage') -> name('blog');
 Route::get('/blog-single/{slug}', 'App\Http\Controllers\FrontEndController@singlePost') -> name('blog.single');
 
+//BlogPost Search by Category
+
+Route::get('category/{slug}', 'App\Http\Controllers\FrontEndController@postByCategory') -> name('blog.category.search');
+
+//BlogPost Search by Tag
+Route::get('tag/{slug}', 'App\Http\Controllers\FrontEndController@postByTag') -> name('blog.tag.search');
+
+//BlogPost Search by Latestpost
+Route::get('latest-post/{slug}', 'App\Http\Controllers\FrontEndController@postByLatest') -> name('post.latest.search');
+
+//BlogPost Serarch by Search Field
+Route::post('search', 'App\Http\Controllers\FrontEndController@postBySearch') -> name('post.search');
+
 // Route::get('/blog-single', function () {
 //     return view('frontend.blog-single');
 // });

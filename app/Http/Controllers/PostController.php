@@ -178,6 +178,6 @@ class PostController extends Controller
         $post_data -> categories() -> detach();
         $post_data -> categories() -> attach($request -> category);
 
-        return redirect() -> back() -> with('success', "Post Update Done");
+        return redirect() -> back() -> with('success', "Post Update Successfull");
     }
 }
