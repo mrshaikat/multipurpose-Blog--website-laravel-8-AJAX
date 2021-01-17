@@ -162,7 +162,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Post::find($id);
+        $data -> delete();
+
+        return redirect() -> back() -> with('success', 'Category Delete Successfull');
     }
 
     public function postUpdate(Request $request){
@@ -180,4 +183,24 @@ class PostController extends Controller
 
         return redirect() -> back() -> with('success', "Post Update Successfull");
     }
+
+
+    public function unpublishedCategory($id){
+        $data = Post::find($id);
+        $data -> status = 'Unpublished';
+        $data -> update();
+
+        return redirect() -> back() -> with('success', 'Category Unpublished Successfull');
+    }
+
+    public function publishedCategory($id){
+        $data = Post::find($id);
+        $data -> status = 'Published';
+        $data -> update();
+
+        return redirect() -> back() -> with('success', 'Category Published Successfull');
+    }
+
+
+
 }

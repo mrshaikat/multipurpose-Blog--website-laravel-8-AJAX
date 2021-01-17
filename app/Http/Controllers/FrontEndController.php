@@ -35,15 +35,15 @@ class FrontEndController extends Controller
 
     public function postByCategory($slug){
 
-        $aacats = Category::where('slug', $slug) ->  get();
-        return view('frontend.category-search', compact('aacats'));
+        $cats = Category::where('slug', $slug) ->  first();
+        return view('frontend.category-search', compact('cats'));
 
     }
 
     public function postByTag($slug){
 
-        $aatags = Tag::where('slug', $slug) ->  get();
-        return view('frontend.tag-search', compact('aatags'));
+        $tags = Tag::where('slug', $slug) ->  get();
+        return view('frontend.tag-search', compact('tags'));
 
     }
 

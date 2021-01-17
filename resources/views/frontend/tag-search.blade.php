@@ -28,7 +28,7 @@
         <div class="blog-posts">
           <!-- Article Post-->
 
-          @foreach($aatags -> posts as $post)
+          @foreach($tags -> posts as $post)
           <article class="post-single">
             <div class="post-info">
               <h2><a href="#">{{ $post -> title }}</a></h2>

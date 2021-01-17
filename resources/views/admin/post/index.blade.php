@@ -87,12 +87,12 @@
                                 </td>
                                 <td>
                                     @if($data -> status == 'Published')
-                                        <a class="btn btn-danger btn-sm" href="{{ route('tag.unpublished', $data -> id) }}"><i class="fa fa-eye-slash"></i></a>
+                                        <a class="btn btn-danger btn-sm" href="{{ route('post.unpublished', $data -> id) }}"><i class="fa fa-eye-slash"></i></a>
                                     @else
-                                    <a class="btn btn-success btn-sm" href="{{ route('tag.published', $data -> id) }}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-success btn-sm" href="{{ route('post.published', $data -> id) }}"><i class="fa fa-eye"></i></a>
                                     @endif
                                     <a id="post-edit" edit_id="{{ $data -> id }}" class=" btn btn-warning btn-sm" href="#" data-toggle="modal">Edit</a>
-                                    <form style="display: inline;" action="{{ route('tag.destroy', $data -> id) }}" method="POST">
+                                    <form style="display: inline;" action="{{ route('post.destroy', $data -> id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm">Delete</button>
@@ -211,7 +211,8 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea name="content" id="" class="form-control"></textarea>
+                        <textarea name="content" id="" class="form-control" cols="30" rows="10"></textarea>
+
                     </div>
 
 
