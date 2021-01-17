@@ -1,3 +1,7 @@
+@php
+    $setting = App\Models\Setting::find(1);
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,8 +52,9 @@
         <!-- Logo container-->
         <div class="logo">
           <a href="index-2.html">
-            <img src="frontend/images/logo_light.png" alt="" class="logo-light">
-            <img src="frontend/images/logo_dark.png" alt="" class="logo-dark">
+            <img style="width: {{ $setting -> logo_width }}" src="{{ URL::to('/') }}/admin/media/settings/logo/{{ $setting -> logo_name }}" alt="" class="logo-light">
+
+            <img style="width: {{ $setting -> logo_width }}" src="{{ URL::to('/') }}/admin/media/settings/logo/{{ $setting -> logo_name }}" alt="" class="logo-dark">
           </a>
         </div>
         <!-- End Logo container-->

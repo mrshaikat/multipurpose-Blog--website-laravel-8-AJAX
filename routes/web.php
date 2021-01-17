@@ -61,3 +61,8 @@ Route::get('post-edit/{id}', 'App\Http\Controllers\PostController@edit');
 Route::patch('post-update', 'App\Http\Controllers\PostController@postUpdate')-> name('post.update.ajax');
 Route::get('post-unpublished/{id}', 'App\Http\Controllers\PostController@unpublishedCategory') -> name('post.unpublished');
 Route::get('post-published/{id}', 'App\Http\Controllers\PostController@publishedCategory') -> name('post.published');
+
+//Web Settings Routes
+
+Route::get('settings/logo', 'App\Http\Controllers\SettingController@logoIndex') -> name('logo.index');
+Route::put('settings/logo-update', 'App\Http\Controllers\SettingController@logoUpdate') -> name('logo.update');
