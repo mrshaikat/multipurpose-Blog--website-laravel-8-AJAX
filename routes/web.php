@@ -66,3 +66,10 @@ Route::get('post-published/{id}', 'App\Http\Controllers\PostController@published
 
 Route::get('settings/logo', 'App\Http\Controllers\SettingController@logoIndex') -> name('logo.index');
 Route::put('settings/logo-update', 'App\Http\Controllers\SettingController@logoUpdate') -> name('logo.update');
+
+
+//Web Social Media Setting Route
+
+Route::get('settings/social', 'App\Http\Controllers\SettingController@socialIndex') -> name('social.index');
+Route::post('settings/social-update', 'App\Http\Controllers\SettingController@socialUpdate') -> name('social.update');
+

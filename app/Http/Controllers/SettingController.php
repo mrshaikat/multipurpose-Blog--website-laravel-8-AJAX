@@ -53,5 +53,36 @@ class SettingController extends Controller
 
     }
 
+    public function socialIndex(){
+
+        $settings = Setting::find(1);
+
+        return view('admin.settings.social.index', compact('settings'));
+    }
+
+    public function socialUpdate(Request $request){
+
+        $social_data =[
+
+            'face'  => $request -> face,
+            'twit'  => $request -> twit,
+            'linkd'  => $request -> linkd,
+            'inst'  => $request -> inst,
+            'drib'  => $request -> drib,
+
+        ];
+
+         $social_json = json_encode($social_data);
+
+         $settings = Setting::find(1);
+         $settings -> social =  $social_json;
+         $settings -> update();
+
+         return redirect() -> route('social.index') -> with('success', 'Social Media Update Done');
+
+    }
+
+
+
 
 }

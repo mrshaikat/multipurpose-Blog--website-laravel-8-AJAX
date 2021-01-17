@@ -48,7 +48,7 @@
                     <a href="#"><i class="fe fe-vector"></i> <span> Settings</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{ route('logo.index') }}">Logo</a></li>
-                        <li><a href="#">Social Icon</a></li>
+                        <li><a href="{{ route('social.index') }}">Social Icon</a></li>
                         <li><a href="#">Footer</a></li>
 
 
