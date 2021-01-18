@@ -569,20 +569,24 @@
             <div class="col-md-4">
               <div class="footer-social">
                 <ul>
+
+                    @php
+                        $social = json_decode($setting -> social);
+                    @endphp
                   <li>
-                    <a target="_blank" href="#"><i class="ti-facebook"></i></a>
+                    <a target="_blank" href="{{  $social -> face }}"><i class="ti-facebook"></i></a>
                   </li>
                   <li>
-                    <a target="_blank" href="#"><i class="ti-twitter-alt"></i></a>
+                    <a target="_blank" href="{{  $social -> twit }}"><i class="ti-twitter-alt"></i></a>
                   </li>
                   <li>
-                    <a target="_blank" href="#"><i class="ti-linkedin"></i></a>
+                    <a target="_blank" href="{{  $social -> linkd }}"><i class="ti-linkedin"></i></a>
                   </li>
                   <li>
-                    <a target="_blank" href="#"><i class="ti-instagram"></i></a>
+                    <a target="_blank" href="{{  $social -> inst }}"><i class="ti-instagram"></i></a>
                   </li>
                   <li>
-                    <a target="_blank" href="#"><i class="ti-dribbble"></i></a>
+                    <a target="_blank" href="{{  $social -> drib }}"><i class="ti-dribbble"></i></a>
                   </li>
                 </ul>
               </div>

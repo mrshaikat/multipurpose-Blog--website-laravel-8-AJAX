@@ -102,6 +102,80 @@
       });
 
 
+      //Comet slider scriopt
+
+      $(document).on('click', '#comet-add-slide', function() {
+
+        let rand = Math.floor( Math.random() * 10000)  ;
+
+
+        $('.comet-slider-container').append('<div id="slider-card-'+ rand +'" class="card">'+
+        '                                                <div data-toggle="collapse" data-target="#slide-'+ rand +'" style="cursor: pointer;" class="card-header">'+
+        ''+
+        '                                                   <h4 class="">slide 1 <button id="comet-slide-remove-btn" remove_id="'+ rand +'" class="close">&times;</button></h4>'+
+        '                                                </div>'+
+        '                                                <div id="slide-'+ rand +'" class="collapse">'+
+        '                                                    <div class="card-body">'+
+        '                                                        <div class="form-group">'+
+        '                                                            <label for="">Sub Title</label>'+
+        '                                                            <input type="text" class="form-control">'+
+        '                                                        </div>'+
+        ''+
+        '                                                        <div class="form-group">'+
+        '                                                            <label for="">Title</label>'+
+        '                                                            <input type="text" class="form-control">'+
+        '                                                        </div>'+
+        ''+
+        '                                                        <div class="form-group">'+
+        '                                                            <label for="">Button 01 Title</label>'+
+        '                                                            <input type="text" class="form-control">'+
+        '                                                        </div>'+
+        ''+
+        '                                                        <div class="form-group">'+
+        '                                                            <label for="">Button 01 Link</label>'+
+        '                                                            <input type="text" class="form-control">'+
+        '                                                        </div>'+
+        ''+
+        '                                                        <div class="form-group">'+
+        '                                                            <label for="">Button 02 Title</label>'+
+        '                                                            <input type="text" class="form-control">'+
+        '                                                        </div>'+
+        ''+
+        '                                                        <div class="form-group">'+
+        '                                                            <label for="">Button 02 Link</label>'+
+        '                                                            <input type="text" class="form-control">'+
+        '                                                        </div>'+
+        ''+
+        ''+
+        ''+
+        ''+
+        ''+
+        ''+
+        '                                                    </div>'+
+        '                                                </div>'+
+        ''+
+        '                                               </div>'
+            );
+
+            return false;
+
+
+      });
+
+
+      //Slider Remove
+
+
+      $(document).on('click', '#comet-slide-remove-btn', function() {
+
+        let remove_code = $(this).attr('remove_id');
+
+        $('#slider-card-'+ remove_code ).remove();
+      });
+
+
+
+      return false;
     });
 
 

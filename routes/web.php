@@ -73,3 +73,25 @@ Route::put('settings/logo-update', 'App\Http\Controllers\SettingController@logoU
 Route::get('settings/social', 'App\Http\Controllers\SettingController@socialIndex') -> name('social.index');
 Route::post('settings/social-update', 'App\Http\Controllers\SettingController@socialUpdate') -> name('social.update');
 
+
+
+
+
+
+
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'home'], function () {
+
+    Route::get('slider','HomePageController@index') -> name('slider.index');
+
+
+
+
+    //Our Clients Setting Route
+
+    Route::get('clients', 'HomePageController@clientsIndex') -> name('clients.index');
+    Route::post('clients-update', 'HomePageController@clientsUpdate') -> name('clients.update');
+
+
+
+});
+
