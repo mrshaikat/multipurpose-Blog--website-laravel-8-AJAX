@@ -81,7 +81,9 @@ Route::post('settings/social-update', 'App\Http\Controllers\SettingController@so
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'home'], function () {
 
+    //Slider Route
     Route::get('slider','HomePageController@index') -> name('slider.index');
+    Route::post('slider/store','HomePageController@sliderStore') -> name('slider.store');
 
 
 

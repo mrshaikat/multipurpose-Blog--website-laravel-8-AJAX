@@ -15,12 +15,12 @@ class CreateHomePagesTable extends Migration
     {
         Schema::create('home_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('sliders') -> nullable();
-            $table->string('wwa') -> nullable();
-            $table->string('vision') -> nullable();
-            $table->string('clients') -> nullable();
-            $table->string('testimonials') -> nullable();
-            $table->string('setup') -> nullable();
+            $table->longText('sliders') -> nullable();
+            $table->longText('wwa') -> nullable();
+            $table->longText('vision') -> nullable();
+            $table->longText('clients') -> nullable();
+            $table->longText('testimonials') -> nullable();
+            $table->longText('setup') -> nullable();
             $table->timestamps();
         });
     }

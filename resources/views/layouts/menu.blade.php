@@ -46,7 +46,7 @@
                     <a href="#"><i class="fe fe-vector"></i> <span>Home Settings</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
 
-                        <li><a href="">Slider</a></li>
+                        <li><a href="{{ route('slider.index') }}">Slider</a></li>
                         <li><a href="">Who We Are</a></li>
                         <li><a href="">Vision</a></li>
                         <li><a href="{{ route('clients.index') }}">Clients</a></li>

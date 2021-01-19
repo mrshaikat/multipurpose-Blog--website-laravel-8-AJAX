@@ -110,40 +110,40 @@
 
 
         $('.comet-slider-container').append('<div id="slider-card-'+ rand +'" class="card">'+
-        '                                                <div data-toggle="collapse" data-target="#slide-'+ rand +'" style="cursor: pointer;" class="card-header">'+
+        '                                                <div data-toggle="collapse" data-target="#slide-'+ rand +'" style="cursor: pointer;" class="card-header bg-primary">'+
         ''+
-        '                                                   <h4 class="">slide 1 <button id="comet-slide-remove-btn" remove_id="'+ rand +'" class="close">&times;</button></h4>'+
+        '                                                   <h4 class="">#slide-'+ rand +' <button id="comet-slide-remove-btn" remove_id="'+ rand +'" class="close">&times;</button></h4>'+
         '                                                </div>'+
         '                                                <div id="slide-'+ rand +'" class="collapse">'+
         '                                                    <div class="card-body">'+
         '                                                        <div class="form-group">'+
         '                                                            <label for="">Sub Title</label>'+
-        '                                                            <input type="text" class="form-control">'+
+        '                                                            <input type="hidden" name="slider_code[]" class="form-control" value="'+ rand +'"><input type="text" name="subtitle[]" class="form-control">'+
         '                                                        </div>'+
         ''+
         '                                                        <div class="form-group">'+
         '                                                            <label for="">Title</label>'+
-        '                                                            <input type="text" class="form-control">'+
+        '                                                            <input type="text" name="title[]" class="form-control">'+
         '                                                        </div>'+
         ''+
         '                                                        <div class="form-group">'+
         '                                                            <label for="">Button 01 Title</label>'+
-        '                                                            <input type="text" class="form-control">'+
+        '                                                            <input type="text" name="btn1_title[]" class="form-control">'+
         '                                                        </div>'+
         ''+
         '                                                        <div class="form-group">'+
         '                                                            <label for="">Button 01 Link</label>'+
-        '                                                            <input type="text" class="form-control">'+
+        '                                                            <input type="text" name="btn1_link[]" class="form-control">'+
         '                                                        </div>'+
         ''+
         '                                                        <div class="form-group">'+
         '                                                            <label for="">Button 02 Title</label>'+
-        '                                                            <input type="text" class="form-control">'+
+        '                                                            <input type="text" name="btn2_title[]" class="form-control">'+
         '                                                        </div>'+
         ''+
         '                                                        <div class="form-group">'+
         '                                                            <label for="">Button 02 Link</label>'+
-        '                                                            <input type="text" class="form-control">'+
+        '                                                            <input type="text" name="btn2_link[]" class="form-control">'+
         '                                                        </div>'+
         ''+
         ''+
